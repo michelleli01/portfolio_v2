@@ -4,22 +4,25 @@ import React, { useState } from "react";
 type NavItemProps = {
   text: string;
   href: string;
-  active: boolean;
 };
 
-const NavItem = ({ text, href, active }: NavItemProps) => {
+const NavItem = ({ text, href }: NavItemProps) => {
   return (
-    <Link href={href} className={`nav_item ${active ? "active" : ""}`}>
+    <Link href={href} className={`nav_item`}>
       {text}
     </Link>
   );
 };
 
+const MobileNavbar = () => {};
+
 const Navbar = () => {
+  const [active, setActive] = useState(false);
+
   const navItems: NavItemProps[] = [
-    { text: "About", href: "/about", active: false },
-    { text: "Experience", href: "/experience", active: false },
-    { text: "Projects", href: "/projects", active: false },
+    { text: "work", href: "/" },
+    { text: "projects", href: "/projects" },
+    { text: "about", href: "/about" },
   ];
 
   return (
@@ -29,14 +32,7 @@ const Navbar = () => {
           <h1 className="logo">michelle li</h1>
         </Link>
         {navItems.map((d: NavItemProps) => {
-          return (
-            <NavItem
-              key={d.href}
-              text={d.text}
-              href={d.href}
-              active={d.active}
-            />
-          );
+          return <NavItem key={d.href} text={d.text} href={d.href} />;
         })}
       </nav>
     </header>
