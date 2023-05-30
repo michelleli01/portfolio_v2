@@ -1,0 +1,13 @@
+.footer_icon {
+  color: black;
+  display: inline;
+  margin: 1em;
+}
+
+.footer_icon:hover {
+  color: #395144;
+}
+
+.footer_text_icon {
+  color: #617143;
+}
